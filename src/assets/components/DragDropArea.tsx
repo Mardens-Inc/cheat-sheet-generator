@@ -99,13 +99,12 @@ export default function DragDropArea(props: DragDropAreaProps)
                 cn(
                     "flex flex-col items-center justify-center w-full relative",
                     "border-dotted border-2 border-transparent rounded-lg mx-4 mt-2 mb-4 p-8 gap-8",
-                    "data-[dragover=true]:bg-primary/10 data-[dragover=true]:border-primary",
-                    "transition-all duration-200"
+                    "data-[dragover=true]:bg-primary/10 data-[dragover=true]:border-primary"
                 )
             }
             animate={{opacity: isUnloadingComponent ? 0 : 1, y: isUnloadingComponent ? 40 : 0}}
-            transition={{duration: 0.2}}
-            initial={{opacity: 1}}
+            transition={{duration: 0.5, type: "spring"}}
+            initial={{opacity: 0, y: 40}}
             exit={{opacity: 0}}
             data-dragover={isDragging}
         >
@@ -165,7 +164,6 @@ export default function DragDropArea(props: DragDropAreaProps)
 
                             if (filepath)
                             {
-                                console.log(filepath);
                                 processFile(filepath as string);
                             }
                         }}
