@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    cheat - sheet - generator_lib::run()
+    cheat_sheet_generator_lib::run()
 }
