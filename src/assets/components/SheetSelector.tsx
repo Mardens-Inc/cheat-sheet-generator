@@ -25,7 +25,10 @@ export default function SheetSelector(props: SheetSelectorProps)
     return (
         <>
             {isLoading ?
-                <Spinner/> :
+                <div className={"flex w-full h-full items-center justify-center"}>
+                    <Spinner size={"lg"} color={"primary"}/>
+                </div>
+                :
                 <motion.div
                     className={"flex flex-col w-full gap-4 mb-4 mx-4 overflow-hidden"}
                     animate={{opacity: isUnloadingComponent ? 0 : 1, y: isUnloadingComponent ? 40 : 0}}
