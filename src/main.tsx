@@ -8,6 +8,7 @@ import Home from "./assets/pages/Home.tsx";
 import Navigation from "./assets/components/Navigation.tsx";
 import {ThemeProvider} from "./assets/providers/ThemeProvider.tsx";
 import {HeroUIProvider, ToastProvider} from "@heroui/react";
+import SelectSheetPage from "./assets/pages/SelectSheetPage.tsx";
 
 
 ReactDOM.createRoot($("#root")[0]!).render(
@@ -23,10 +24,7 @@ ReactDOM.createRoot($("#root")[0]!).render(
 export function MainContentRenderer()
 {
     const navigate = useNavigate();
-    $(window).on("context-menu", e =>
-    {
-        e.preventDefault();
-    });
+    $(window).on("contextmenu", e => e.preventDefault());
     return (
         <HeroUIProvider navigate={navigate}>
             <ToastProvider
@@ -39,10 +37,11 @@ export function MainContentRenderer()
             />
             <main className={"flex flex-col p-0 m-0"}>
                 <Navigation/>
-                <div className={"flex flex-row w-full max-h-[calc(100vh-2.5rem)] h-screen overflow-y-auto p-0 m-0"} data-tauri-drag-region="">
+                <div className={"flex flex-row w-full max-h-[calc(100vh-2.5rem)] h-screen overflow-y-hidden p-0 m-0"} data-tauri-drag-region="">
                     <Routes>
                         <Route>
                             <Route path="/" element={<Home/>}/>
+                            <Route path={"/select-sheets"} element={<SelectSheetPage/>}/>
                         </Route>
                     </Routes>
                 </div>
