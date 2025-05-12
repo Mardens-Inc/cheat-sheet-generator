@@ -1,7 +1,16 @@
-export default function Home() {
+import DragDropArea from "../components/DragDropArea.tsx";
+import {useState} from "react";
+
+export default function Home()
+{
+    const [selectedFile, setSelectedFile] = useState<string | undefined>(undefined);
+
     return (
         <>
-            <h1 className="text-3xl font-bold underline">Home Page</h1>
+            {selectedFile ?
+                <></> :
+                <DragDropArea onFileSelected={setSelectedFile}/>
+            }
         </>
     );
 }
