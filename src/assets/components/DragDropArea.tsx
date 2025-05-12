@@ -70,7 +70,7 @@ export default function DragDropArea(props: DragDropAreaProps)
     const processFile = (filePath: string) =>
     {
         // Check if the file has a valid extension
-        const validExtensions = [".xlsx", ".xls", ".xlsb", ".csv"];
+        const validExtensions = [".xlsx", ".xls", ".xlsb" /*,".csv"*/];
         const hasValidExtension = validExtensions.some(ext =>
             filePath.toLowerCase().endsWith(ext)
         );
@@ -85,7 +85,7 @@ export default function DragDropArea(props: DragDropAreaProps)
             console.error("Invalid file type. Please use Excel or CSV files.");
             addToast({
                 title: "Invalid File Type",
-                description: "Please use Excel or CSV files.",
+                description: "Please use Excel files (.xlsx, .xls, .xlsb).",
                 color: "danger",
                 timeout: 10000
             });
@@ -156,9 +156,9 @@ export default function DragDropArea(props: DragDropAreaProps)
                                 directory: false,
                                 title: "Select Item File",
                                 filters: [
-                                    {name: "All Supported Files", extensions: ["xlsx", "xls", "xlsb", "csv"]},
-                                    {name: "Excel", extensions: ["xlsx", "xls", "xlsb"]},
-                                    {name: "CSV", extensions: ["csv"]}
+                                    // {name: "All Supported Files", extensions: ["xlsx", "xls", "xlsb", "csv"]},
+                                    {name: "Excel", extensions: ["xlsx", "xls", "xlsb"]}
+                                    // {name: "CSV", extensions: ["csv"]}
                                 ]
                             });
 
