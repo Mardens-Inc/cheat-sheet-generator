@@ -3,7 +3,7 @@ name = "cheat_sheet_generator"
 version = "0.0.0"
 description = "Generates a cheet sheet for the POS System from a excel item list."
 authors = ["Drew Chase"]
-edition = "2021"
+edition = "2024"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
