@@ -1,16 +1,15 @@
 import DragDropArea from "../components/DragDropArea.tsx";
-import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 export default function Home()
 {
-    const [selectedFile, setSelectedFile] = useState<string | undefined>(undefined);
+    const navigate = useNavigate();
 
     return (
-        <>
-            {selectedFile ?
-                <></> :
-                <DragDropArea onFileSelected={setSelectedFile}/>
-            }
-        </>
-    );
+        <DragDropArea onFileSelected={file =>
+        {
+            navigate(`/select-sheets?file=${encodeURIComponent(file)}`);
+        }}/>
+    )
+        ;
 }
