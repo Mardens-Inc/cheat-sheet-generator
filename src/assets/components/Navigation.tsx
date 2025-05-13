@@ -1,4 +1,4 @@
-import {Button, ButtonGroup} from "@heroui/react";
+import {Button, ButtonGroup, Link, Tooltip} from "@heroui/react";
 import {ThemeSwitchComponent} from "../providers/ThemeProvider.tsx";
 import {getCurrentWindow} from "@tauri-apps/api/window";
 import {Icon} from "@iconify-icon/react";
@@ -14,6 +14,9 @@ export default function Navigation()
             </div>
             <div className={"flex flex-row ml-auto"}>
                 <ButtonGroup className={"h-[2rem]"}>
+                    <Tooltip content={"Restart from the beginning"}>
+                        <Button as={Link} href={"/"} variant={"light"} className={"min-w-0 h-[2rem] text-[1rem]"} radius={"sm"}><Icon icon={"mage:refresh-reverse"}/></Button>
+                    </Tooltip>
                     <ThemeSwitchComponent/>
                     <Button variant={"light"} className={"min-w-0 h-[2rem] text-[1rem]"} radius={"sm"} onPress={() => appWindow.minimize()}><Icon icon="material-symbols:minimize-rounded"/></Button>
                     <Button variant={"light"} color={"danger"} className={"min-w-0 h-[2rem] text-[1rem]"} radius={"sm"} onPress={() => appWindow.close()}><Icon icon="material-symbols:close-rounded"/></Button>
