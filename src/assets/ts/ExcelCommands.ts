@@ -73,15 +73,16 @@ export class ExcelCommands
      *
      * @param {string} search - The search parameter string containing sheet-related data.
      * @param {NavigateFunction} navigate - A navigation function used for handling errors or routing.
-     * @return {Promise<SheetData[][]>} A promise that resolves to a 2D array containing the extracted sheet data.
+     * @return {Promise<{data: SheetData[][], sheetNames: string[]}>} A promise that resolves to an object containing the extracted sheet data and sheet names.
      */
-    static async extractSheetDataFromSearchParams(search: string, navigate: NavigateFunction): Promise<SheetData[][]>
+    static async extractSheetDataFromSearchParams(search: string, navigate: NavigateFunction): Promise<{data: SheetData[][], sheetNames: string[]}>
     {
         const params = new URLSearchParams(search);
 
         const filePath = this.getFileNameFromParam(params, navigate);
-        const sheets = this.getSheetNamesFromParams(params, navigate);
-        return await Promise.all(sheets.map(sheet => ExcelCommands.getSheetData(filePath, sheet)));
+        const sheetNames = this.getSheetNamesFromParams(params, navigate);
+        const data = await Promise.all(sheetNames.map(sheet => ExcelCommands.getSheetData(filePath, sheet)));
+        return { data, sheetNames };
     }
 
     /**
