@@ -26,3 +26,4 @@ tauri-plugin-dialog = "2"
 calamine = { version = "0.27.0" }
 qrc = { version = "0.0.5", features = ["default"] }
 rayon = { version = "1.10.0" }
+base64 = "0.22.1"

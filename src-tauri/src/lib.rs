@@ -1,6 +1,7 @@
 mod commands;
 use crate::commands::excel_commands;
 use crate::commands::qrcode_commands;
+use crate::commands::file_commands;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -11,6 +12,7 @@ pub fn run() {
             excel_commands::get_sheet_names,
             excel_commands::get_sheet_data,
             qrcode_commands::generate_qrcode,
+            file_commands::save_image,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
