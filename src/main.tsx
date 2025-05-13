@@ -9,6 +9,7 @@ import Navigation from "./assets/components/Navigation.tsx";
 import {ThemeProvider} from "./assets/providers/ThemeProvider.tsx";
 import {HeroUIProvider, ToastProvider} from "@heroui/react";
 import SelectSheetPage from "./assets/pages/SelectSheetPage.tsx";
+import GenerationPage from "./assets/pages/GenerationPage.tsx";
 
 
 ReactDOM.createRoot($("#root")[0]!).render(
@@ -42,6 +43,7 @@ export function MainContentRenderer()
                         <Route>
                             <Route path="/" element={<Home/>}/>
                             <Route path={"/select-sheets"} element={<SelectSheetPage/>}/>
+                            <Route path={"/generate"} element={<GenerationPage/>}/>
                         </Route>
                     </Routes>
                 </div>
