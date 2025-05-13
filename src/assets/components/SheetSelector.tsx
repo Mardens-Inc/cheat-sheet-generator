@@ -51,7 +51,11 @@ export default function SheetSelector(props: SheetSelectorProps)
                         ))}
                     </Listbox>
                     <div className={"flex flex-row gap-2 mx-auto"}>
-                        <Button isDisabled={selectedSheets.size === 0} onPress={()=>props.onSheetSelected([...selectedSheets])}>Select Sheet</Button>
+                        <Button isDisabled={selectedSheets.size === 0} onPress={() =>
+                        {
+                            setIsUnloadingComponent(true);
+                            setTimeout(() => props.onSheetSelected([...selectedSheets]), 200);
+                        }}>Select Sheet</Button>
                         <Button variant={"light"} color={"danger"} onPress={() =>
                         {
                             setIsUnloadingComponent(true);
